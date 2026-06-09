@@ -105,3 +105,12 @@ def test_server_rendered_dashboard_fetches_use_cookie_session_token() -> None:
     assert "response.status === 401" in source
     assert "serverApiGet" in executive_page
     assert "serverApiGet" in sales_page
+
+
+def test_public_demo_route_is_explicit_and_dashboard_auth_remains() -> None:
+    source = Path("frontend/middleware.ts").read_text()
+
+    assert 'const PUBLIC_ROUTES = ["/login", "/demo"]' in source
+    assert "pathname.startsWith(`${route}/`)" in source
+    assert "!isPublicRoute" in source
+    assert 'NextResponse.redirect(new URL("/login", request.url))' in source

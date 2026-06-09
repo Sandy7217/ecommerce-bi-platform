@@ -46,6 +46,12 @@ flowchart LR
     Routers --> Assistant["AI assistant"]
 ```
 
+## Screenshots
+
+The screenshot below is rendered from the repo's public `/demo` route using sample data, so recruiters can view the dashboard output without private credentials or live business data.
+
+![E-Commerce BI executive dashboard screenshot](docs/screenshots/executive-dashboard.png)
+
 ## Main Capabilities
 
 ### Executive Analytics

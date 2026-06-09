@@ -2,6 +2,7 @@ import { type NextRequest, NextResponse } from "next/server";
 
 const ACCESS_COOKIE = "commerce_bi_access_token";
 const REFRESH_COOKIE = "commerce_bi_refresh_token";
+const PUBLIC_ROUTES = ["/login", "/demo"];
 
 async function getUserEmail(accessToken?: string) {
   const supabaseUrl = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -23,11 +24,12 @@ async function getUserEmail(accessToken?: string) {
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const isLoginRoute = pathname === "/login";
+  const isPublicRoute = PUBLIC_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`));
   const accessToken = request.cookies.get(ACCESS_COOKIE)?.value;
   const refreshToken = request.cookies.get(REFRESH_COOKIE)?.value;
   const userEmail = await getUserEmail(accessToken);
 
-  if (!userEmail && !refreshToken && !isLoginRoute) {
+  if (!userEmail && !refreshToken && !isPublicRoute) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
