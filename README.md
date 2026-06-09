@@ -48,9 +48,13 @@ flowchart LR
 
 ## Screenshots
 
-The screenshot below is rendered from the repo's public `/demo` route using sample data, so recruiters can view the dashboard output without private credentials or live business data.
+The screenshots below are rendered from the repo's public `/demo` route using sample data, so recruiters can view realistic dashboard output without private credentials or live business data.
 
-![E-Commerce BI executive dashboard screenshot](docs/screenshots/executive-dashboard.png)
+![E-Commerce BI executive summary screenshot](docs/screenshots/executive-dashboard.png)
+
+![E-Commerce BI marketplace analytics screenshot](docs/screenshots/marketplace-analytics.png)
+
+![E-Commerce BI alerts and regional heatmap screenshot](docs/screenshots/alerts-regional-heatmap.png)
 
 ## Main Capabilities
 
